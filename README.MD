@@ -1,9 +1,11 @@
-### Gerador de Link WhatsApp
+### ZapBuilder — Crie seu link personalizado para WhatsApp em segundos!
+
+Construa mensagens poderosas. Conecte-se melhor. ZapBuilder.
 
 
 ## 📱 Sobre o Projeto
 
-O **Gerador de Link WhatsApp** é uma ferramenta web que permite aos organizadores de eventos criar mensagens personalizadas para compartilhar informações de eventos via WhatsApp. A aplicação gera automaticamente uma mensagem formatada com emojis e detalhes do evento, facilitando a divulgação e o compartilhamento.
+O **ZapBuilder** é uma ferramenta web que permite aos organizadores de eventos criar mensagens personalizadas para compartilhar informações de eventos via WhatsApp. A aplicação gera automaticamente uma mensagem formatada com emojis e detalhes do evento, facilitando a divulgação e o compartilhamento.
 
 ## ✨ Funcionalidades
 
