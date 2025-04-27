@@ -597,3 +597,4 @@ input:valid:not(:placeholder-shown) {
 .pulsar {
     animation: pulsar 1.5s infinite;
 }
+
