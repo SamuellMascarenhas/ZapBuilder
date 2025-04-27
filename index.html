@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gerador de Link WhatsApp</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container-app">
+        <div class="formas-fundo">
+            <div class="forma forma-1"></div>
+            <div class="forma forma-2"></div>
+            <div class="forma forma-3"></div>
+        </div>
+
+        <header class="cabecalho-app">
+            <div class="logo">
+                <i class="fab fa-whatsapp"></i>
+                <h1>Gerador de Link WhatsApp</h1>
+            </div>
+            <p class="slogan">Crie mensagens personalizadas para WhatsApp para seus eventos em segundos</p>
+        </header>
+
+        <main class="principal-app">
+            <!-- Barra de Progresso -->
+            <div class="container-progresso">
+                <div class="barra-progresso">
+                    <div class="preenchimento-progresso" id="preenchimentoProgresso"></div>
+                </div>
+                <div class="etapas-progresso">
+                    <div class="etapa ativa" data-etapa="1">
+                        <div class="numero-etapa">1</div>
+                        <div class="rotulo-etapa">Detalhes do Evento</div>
+                    </div>
+                    <div class="etapa" data-etapa="2">
+                        <div class="numero-etapa">2</div>
+                        <div class="rotulo-etapa">Suas Informações</div>
+                    </div>
+                    <div class="etapa" data-etapa="3">
+                        <div class="numero-etapa">3</div>
+                        <div class="rotulo-etapa">Mensagem</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Containers de Formulário -->
+            <div class="container-formulario ativa" id="containerFormularioEvento">
+                <div class="cartao-formulario">
+                    <div class="cabecalho-formulario">
+                        <h2><i class="fas fa-calendar-alt"></i> Detalhes do Evento</h2>
+                        <p>Conte-nos sobre seu evento para criar uma mensagem personalizada</p>
+                    </div>
+                    <form id="formularioEvento" class="formulario-animado">
+                        <div class="grade-formulario">
+                            <div class="grupo-formulario">
+                                <label for="nomeEvento">Nome do Evento*</label>
+                                <div class="container-input">
+                                    <i class="fas fa-music"></i>
+                                    <input type="text" id="nomeEvento" placeholder="Festival de Música de Verão" required>
+                                </div>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="dataEvento">Data do Evento*</label>
+                                <div class="container-input">
+                                    <i class="fas fa-calendar"></i>
+                                    <input type="date" id="dataEvento" required>
+                                </div>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="localEvento">Local do Evento*</label>
+                                <div class="container-input">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                    <input type="text" id="localEvento" placeholder="Belo Horizonte, Minas Gerais" required>
+                                </div>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="categoria">Categoria*</label>
+                                <div class="container-input">
+                                    <i class="fas fa-tag"></i>
+                                    <input type="text" id="categoria" placeholder="Música, Arte, Gastronomia, etc." required>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="grupo-formulario largura-total">
+                            <label for="atracoes">Atrações*</label>
+                            <div class="container-input">
+                                <i class="fas fa-star"></i>
+                                <input type="text" id="atracoes" placeholder="Bandas ao vivo, DJs, food trucks" required>
+                            </div>
+                        </div>
+                        <div class="grupo-formulario largura-total">
+                            <label for="linkEvento">Link do Evento*</label>
+                            <div class="container-input">
+                                <i class="fas fa-link"></i>
+                                <input type="url" id="linkEvento" placeholder="https://seuevento.com" required>
+                            </div>
+                        </div>
+                        <div class="acoes-formulario">
+                            <button type="submit" class="botao botao-primario">
+                                <span>Continuar</span>
+                                <i class="fas fa-arrow-right"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container-formulario" id="containerFormularioContato">
+                <div class="cartao-formulario">
+                    <div class="cabecalho-formulario">
+                        <h2><i class="fas fa-user"></i> Suas Informações</h2>
+                        <p>Conte-nos sobre você para gerar sua mensagem personalizada</p>
+                    </div>
+                    <form id="formularioContato" class="formulario-animado">
+                        <div class="grade-formulario">
+                            <div class="grupo-formulario">
+                                <label for="nomeProdutor">Seu Nome*</label>
+                                <div class="container-input">
+                                    <i class="fas fa-user"></i>
+                                    <input type="text" id="nomeProdutor" placeholder="João Silva" required>
+                                </div>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="emailProdutor">Endereço de Email*</label>
+                                <div class="container-input">
+                                    <i class="fas fa-envelope"></i>
+                                    <input type="email" id="emailProdutor" placeholder="joao@exemplo.com" required>
+                                </div>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="telefoneProdutor">Número de Telefone*</label>
+                                <div class="container-input">
+                                    <i class="fas fa-phone"></i>
+                                    <input type="tel" id="telefoneProdutor" placeholder="11987654321" required>
+                                    <span class="dica-input">Apenas números, sem espaços ou caracteres especiais</span>
+                                </div>
+                            </div>
+                            <div class="grupo-formulario">
+                                <label for="empresa">Empresa (Opcional)</label>
+                                <div class="container-input">
+                                    <i class="fas fa-building"></i>
+                                    <input type="text" id="empresa" placeholder="Sua Empresa">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="acoes-formulario">
+                            <button type="button" class="botao botao-secundario" id="botaoVoltarEvento">
+                                <i class="fas fa-arrow-left"></i>
+                                <span>Voltar</span>
+                            </button>
+                            <button type="submit" class="botao botao-primario">
+                                <span>Gerar Mensagem</span>
+                                <i class="fas fa-magic"></i>
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+
+            <div class="container-formulario" id="containerMensagem">
+                <div class="cartao-formulario">
+                    <div class="cabecalho-formulario">
+                        <h2><i class="fab fa-whatsapp"></i> Sua Mensagem do WhatsApp</h2>
+                        <p>Edite sua mensagem antes de enviá-la via WhatsApp</p>
+                    </div>
+                    <div class="container-previa-mensagem">
+                        <div class="mockup-celular">
+                            <div class="cabecalho-celular">
+                                <div class="contato-celular">
+                                    <i class="fab fa-whatsapp"></i>
+                                    <span>WhatsApp</span>
+                                </div>
+                            </div>
+                            <div class="bolha-mensagem">
+                                <div id="previaMensagem"></div>
+                            </div>
+                        </div>
+                        <div class="editor-mensagem">
+                            <label for="mensagemGerada">Edite sua mensagem:</label>
+                            <textarea id="mensagemGerada" rows="10"></textarea>
+                            <div class="contador-caracteres">
+                                <span id="contagemCaracteres">0</span> caracteres
+                            </div>
+                        </div>
+                    </div>
+                    <div class="acoes-formulario">
+                        <button type="button" class="botao botao-secundario" id="botaoVoltarContato">
+                            <i class="fas fa-arrow-left"></i>
+                            <span>Voltar</span>
+                        </button>
+                        <button type="button" class="botao botao-contorno" id="botaoRecomecar">
+                            <i class="fas fa-redo"></i>
+                            <span>Recomeçar</span>
+                        </button>
+                        <button type="button" class="botao botao-primario" id="botaoCopiarEnviar">
+                            <span>Enviar via WhatsApp</span>
+                            <i class="fab fa-whatsapp"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modal de Sucesso -->
+            <div class="modal" id="modalSucesso">
+                <div class="conteudo-modal">
+                    <div class="animacao-sucesso">
+                        <svg class="marca-verificacao" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 52 52">
+                            <circle class="circulo-verificacao" cx="26" cy="26" r="25" fill="none"/>
+                            <path class="check-verificacao" fill="none" d="M14.1 27.2l7.1 7.2 16.7-16.8"/>
+                        </svg>
+                    </div>
+                    <h3>Mensagem Copiada!</h3>
+                    <p>Sua mensagem foi copiada para a área de transferência e o WhatsApp será aberto em uma nova aba.</p>
+                    <button class="botao botao-primario" id="botaoFecharModal">Entendi</button>
+                </div>
+            </div>
+        </main>
+
+        <footer class="rodape-app">
+            <p>&copy; 2025 Gerador de Link WhatsApp | Desenvolvido por <a href="https://www.linkedin.com/in/samuellmascarenhas/">Samuel Mascarenhas</a></p>
+        </footer>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

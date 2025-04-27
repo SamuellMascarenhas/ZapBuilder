@@ -1,0 +1,599 @@
+/* Estilos Base & Reset */
+:root {
+    --cor-primaria: #25D366;
+    --cor-primaria-escura: #128C7E;
+    --cor-primaria-clara: #dcf8c6;
+    --cor-secundaria: #34B7F1;
+    --cor-texto: #333333;
+    --cor-texto-clara: #7d7d7d;
+    --fundo: #f0f2f5;
+    --branco: #ffffff;
+    --sombra: 0 4px 12px rgba(0, 0, 0, 0.1);
+    --transicao: all 0.3s ease;
+    --raio-borda: 12px;
+    --raio-input: 8px;
+    --sucesso: #4CAF50;
+    --erro: #F44336;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.6;
+    color: var(--cor-texto);
+    background-color: var(--fundo);
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* Container do App */
+.container-app {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+    position: relative;
+    z-index: 1;
+}
+
+/* Formas de Fundo */
+.formas-fundo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    overflow: hidden;
+}
+
+.forma {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.4;
+}
+
+.forma-1 {
+    background-color: var(--cor-primaria-clara);
+    width: 300px;
+    height: 300px;
+    top: -100px;
+    right: -100px;
+    animation: flutuar 8s ease-in-out infinite;
+}
+
+.forma-2 {
+    background-color: var(--cor-secundaria);
+    width: 200px;
+    height: 200px;
+    bottom: -50px;
+    left: -50px;
+    animation: flutuar 10s ease-in-out infinite reverse;
+}
+
+.forma-3 {
+    background: linear-gradient(to right, var(--cor-primaria), var(--cor-secundaria));
+    width: 150px;
+    height: 150px;
+    top: 50%;
+    right: 10%;
+    animation: flutuar 12s ease-in-out infinite;
+}
+
+@keyframes flutuar {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    50% { transform: translate(20px, 20px) rotate(5deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+}
+
+/* Cabeçalho */
+.cabecalho-app {
+    text-align: center;
+    margin-bottom: 40px;
+    padding: 20px 0;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}
+
+.logo i {
+    font-size: 2.5rem;
+    color: var(--cor-primaria);
+    margin-right: 15px;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: var(--cor-texto);
+    font-weight: 700;
+}
+
+.slogan {
+    font-size: 1.2rem;
+    color: var(--cor-texto-clara);
+}
+
+/* Barra de Progresso */
+.container-progresso {
+    margin-bottom: 30px;
+}
+
+.barra-progresso {
+    height: 6px;
+    background-color: #e0e0e0;
+    border-radius: 3px;
+    margin-bottom: 15px;
+    overflow: hidden;
+}
+
+.preenchimento-progresso {
+    height: 100%;
+    background-color: var(--cor-primaria);
+    width: 33.33%;
+    transition: width 0.5s ease;
+}
+
+.etapas-progresso {
+    display: flex;
+    justify-content: space-between;
+}
+
+.etapa {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 33.33%;
+    position: relative;
+    transition: var(--transicao);
+}
+
+.numero-etapa {
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    background-color: #e0e0e0;
+    color: var(--cor-texto-clara);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    margin-bottom: 5px;
+    transition: var(--transicao);
+}
+
+.etapa.ativa .numero-etapa,
+.etapa.completa .numero-etapa {
+    background-color: var(--cor-primaria);
+    color: var(--branco);
+}
+
+.rotulo-etapa {
+    font-size: 0.9rem;
+    color: var(--cor-texto-clara);
+    transition: var(--transicao);
+}
+
+.etapa.ativa .rotulo-etapa {
+    color: var(--cor-primaria);
+    font-weight: 600;
+}
+
+/* Container de Formulário */
+.container-formulario {
+    display: none;
+    animation: aparecer 0.5s ease forwards;
+}
+
+.container-formulario.ativa {
+    display: block;
+}
+
+@keyframes aparecer {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.cartao-formulario {
+    background-color: var(--branco);
+    border-radius: var(--raio-borda);
+    box-shadow: var(--sombra);
+    padding: 30px;
+    margin-bottom: 30px;
+    transition: var(--transicao);
+}
+
+.cartao-formulario:hover {
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+.cabecalho-formulario {
+    margin-bottom: 25px;
+    text-align: center;
+}
+
+.cabecalho-formulario h2 {
+    font-size: 1.8rem;
+    color: var(--cor-texto);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.cabecalho-formulario h2 i {
+    margin-right: 10px;
+    color: var(--cor-primaria);
+}
+
+.cabecalho-formulario p {
+    color: var(--cor-texto-clara);
+}
+
+/* Estilos de Formulário */
+.formulario-animado {
+    transition: var(--transicao);
+}
+
+.grade-formulario {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.grupo-formulario {
+    margin-bottom: 20px;
+}
+
+.grupo-formulario.largura-total {
+    grid-column: span 2;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: var(--cor-texto);
+}
+
+.container-input {
+    position: relative;
+}
+
+.container-input i {
+    position: absolute;
+    left: 12px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--cor-texto-clara);
+    transition: var(--transicao);
+}
+
+input, textarea {
+    width: 100%;
+    padding: 12px 12px 12px 40px;
+    border: 1px solid #e0e0e0;
+    border-radius: var(--raio-input);
+    font-size: 1rem;
+    transition: var(--transicao);
+}
+
+textarea {
+    padding: 12px;
+    resize: vertical;
+    min-height: 150px;
+}
+
+input:focus, textarea:focus {
+    outline: none;
+    border-color: var(--cor-primaria);
+    box-shadow: 0 0 0 3px rgba(37, 211, 102, 0.2);
+}
+
+input:focus + i {
+    color: var(--cor-primaria);
+}
+
+.dica-input {
+    display: block;
+    font-size: 0.8rem;
+    color: var(--cor-texto-clara);
+    margin-top: 5px;
+}
+
+/* Ações do Formulário */
+.acoes-formulario {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+}
+
+.botao {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 12px 24px;
+    border: none;
+    border-radius: var(--raio-input);
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicao);
+}
+
+.botao i {
+    margin-left: 8px;
+    margin-right: 8px;
+}
+
+.botao-primario {
+    background-color: var(--cor-primaria);
+    color: var(--branco);
+}
+
+.botao-primario:hover {
+    background-color: var(--cor-primaria-escura);
+    transform: translateY(-2px);
+}
+
+.botao-secundario {
+    background-color: #f5f5f5;
+    color: var(--cor-texto);
+}
+
+.botao-secundario:hover {
+    background-color: #e0e0e0;
+}
+
+.botao-contorno {
+    background-color: transparent;
+    border: 1px solid #e0e0e0;
+    color: var(--cor-texto-clara);
+}
+
+.botao-contorno:hover {
+    border-color: var(--cor-texto);
+    color: var(--cor-texto);
+}
+
+/* Prévia da Mensagem */
+.container-previa-mensagem {
+    display: flex;
+    gap: 30px;
+    margin-bottom: 30px;
+}
+
+.mockup-celular {
+    flex: 1;
+    background-color: #f0f2f5;
+    border-radius: var(--raio-borda);
+    overflow: hidden;
+    box-shadow: var(--sombra);
+    max-width: 350px;
+}
+
+.cabecalho-celular {
+    background-color: var(--cor-primaria-escura);
+    color: var(--branco);
+    padding: 15px;
+}
+
+.contato-celular {
+    display: flex;
+    align-items: center;
+}
+
+.contato-celular i {
+    margin-right: 10px;
+    font-size: 1.2rem;
+}
+
+.bolha-mensagem {
+    background-color: var(--branco);
+    margin: 15px;
+    padding: 15px;
+    border-radius: 8px;
+    position: relative;
+    box-shadow: 0 1px 2px rgba(0, 0, 0, 0.1);
+}
+
+.bolha-mensagem:after {
+    content: '';
+    position: absolute;
+    top: 15px;
+    left: -10px;
+    border-width: 10px 10px 0;
+    border-style: solid;
+    border-color: var(--branco) transparent;
+    transform: rotate(90deg);
+}
+
+#previaMensagem {
+    white-space: pre-wrap;
+    font-size: 0.9rem;
+}
+
+.editor-mensagem {
+    flex: 2;
+}
+
+.contador-caracteres {
+    text-align: right;
+    font-size: 0.8rem;
+    color: var(--cor-texto-clara);
+    margin-top: 5px;
+}
+
+/* Modal de Sucesso */
+.modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal.ativa {
+    display: flex;
+    animation: aparecer 0.3s ease forwards;
+}
+
+.conteudo-modal {
+    background-color: var(--branco);
+    border-radius: var(--raio-borda);
+    padding: 30px;
+    text-align: center;
+    max-width: 400px;
+    width: 90%;
+    box-shadow: var(--sombra);
+    animation: escalaEntrada 0.3s ease forwards;
+}
+
+@keyframes escalaEntrada {
+    from { transform: scale(0.9); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+}
+
+.animacao-sucesso {
+    margin: 20px auto;
+    width: 80px;
+    height: 80px;
+}
+
+.marca-verificacao {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    display: block;
+    stroke-width: 2;
+    stroke: var(--sucesso);
+    stroke-miterlimit: 10;
+    box-shadow: inset 0px 0px 0px var(--sucesso);
+    animation: preencher .4s ease-in-out .4s forwards, escala .3s ease-in-out .9s both;
+}
+
+.circulo-verificacao {
+    stroke-dasharray: 166;
+    stroke-dashoffset: 166;
+    stroke-width: 2;
+    stroke-miterlimit: 10;
+    stroke: var(--sucesso);
+    fill: none;
+    animation: tracar 0.6s cubic-bezier(0.65, 0, 0.45, 1) forwards;
+}
+
+.check-verificacao {
+    transform-origin: 50% 50%;
+    stroke-dasharray: 48;
+    stroke-dashoffset: 48;
+    animation: tracar 0.3s cubic-bezier(0.65, 0, 0.45, 1) 0.8s forwards;
+}
+
+@keyframes tracar {
+    100% { stroke-dashoffset: 0; }
+}
+
+@keyframes escala {
+    0%, 100% { transform: none; }
+    50% { transform: scale3d(1.1, 1.1, 1); }
+}
+
+@keyframes preencher {
+    100% { box-shadow: inset 0px 0px 0px 30px transparent; }
+}
+
+/* Rodapé */
+.rodape-app {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px 0;
+    color: var(--cor-texto-clara);
+}
+
+.rodape-app i {
+    color: #F44336;
+}
+
+/* Estilos Responsivos */
+@media (max-width: 768px) {
+    .grade-formulario {
+        grid-template-columns: 1fr;
+    }
+    
+    .grupo-formulario.largura-total {
+        grid-column: span 1;
+    }
+    
+    .container-previa-mensagem {
+        flex-direction: column;
+    }
+    
+    .mockup-celular {
+        max-width: 100%;
+    }
+    
+    .acoes-formulario {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    .botao {
+        width: 100%;
+    }
+    
+    .rotulo-etapa {
+        font-size: 0.7rem;
+    }
+}
+
+/* Estilos de Validação de Input */
+input:invalid:not(:placeholder-shown) {
+    border-color: var(--erro);
+}
+
+input:valid:not(:placeholder-shown) {
+    border-color: var(--sucesso);
+}
+
+/* Animação para transições de formulário */
+@keyframes deslizarDireita {
+    from { transform: translateX(50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes deslizarEsquerda {
+    from { transform: translateX(-50px); opacity: 0; }
+    to { transform: translateX(0); opacity: 1; }
+}
+
+.deslizar-direita {
+    animation: deslizarDireita 0.5s ease forwards;
+}
+
+.deslizar-esquerda {
+    animation: deslizarEsquerda 0.5s ease forwards;
+}
+
+/* Animação de pulso para botões */
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.05); }
+    100% { transform: scale(1); }
+}
+
+.pulsar {
+    animation: pulsar 1.5s infinite;
+}
