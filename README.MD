@@ -26,14 +26,14 @@ O **ZapBuilder** é uma ferramenta web que permite aos organizadores de eventos 
 1. Clone o repositório:
 
 ```shellscript
-git clone https://github.com/SamuellMascarenhas/gerador-link-whatsapp.git
+git clone https://github.com/SamuellMascarenhas/ZapBuilder.git
 ```
 
 
 2. Navegue até o diretório do projeto:
 
 ```shellscript
-cd gerador-link-whatsapp
+cd ZapBuilder
 ```
 
 
@@ -50,7 +50,7 @@ python -m http.server 8000
 
 ### Uso Online
 
-Acesse a versão online em: [gerador-link-whatsapp.vercel.app](https://gerador-link-whatsapp.vercel.app)
+Acesse a versão online em: [ZapBuilder.com](https://samuellmascarenhas.github.io/ZapBuilder/)
 
 ## 📋 Guia de Uso
 
@@ -91,7 +91,7 @@ Acesse a versão online em: [gerador-link-whatsapp.vercel.app](https://gerador-l
 gerador-link-whatsapp/
 │
 ├── index.html          # Estrutura HTML principal
-├── estilo.css          # Estilos CSS
+├── style.css          # Estilos CSS
 ├── script.js           # Funcionalidades JavaScript
 └── README.md           # Documentação
 ```
