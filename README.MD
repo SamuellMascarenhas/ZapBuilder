@@ -1,6 +1,6 @@
 ### ZapBuilder — Crie seu link personalizado para WhatsApp em segundos!
 
-Construa mensagens poderosas. Conecte-se melhor. ZapBuilder.
+Construa mensagens poderosas. Conecte-se melhor. ZapBuilder!
 
 
 ## 📱 Sobre o Projeto
